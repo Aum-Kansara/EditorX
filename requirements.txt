@@ -1,7 +1,6 @@
-gunicorn
-absl-py
-altair
-antlr4-python3-runtime
+absl-py==1.4.0
+altair==4.2.2
+antlr4-python3-runtime==4.9.3
 asgiref
 astunparse
 attrs
