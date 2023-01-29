@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EditorX | An AI Editor Tool</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+  </head>
+  <body>
+    {% if imgPath == None %}
+    <div class="container disable">
+        {% else %}
+        <div class="container">
+        {% endif %}
+        <h2>EditorX | An AI Editor Tool</h2>
+        <div class="wrapper">
+            <div class="editor-panel">
+                <div class="filter">
+                    <label class="title">Advanced AI Filters</label>
+                    <div class="adv-filters">
+                        <div class="slider">
+                            <input type="range" value="100" min="0" max="200" hidden>
+                        </div>
+                        <label class="title">Select Filters </label>
+                        <div class="options">
+                            <button id="auto-adjust" class="active">Auto Adjust</button>
+                            <button id="face-detection">Detect Faces</button>
+                            <button id="noise-remover">Noise Remover</button>
+                            <button id="wa  ter-filter">AI water-filter</button>
+                            <button id="edges">Detect Edges</button>
+                            <button id="face changer" onclick="alert('Not Implemented Yet')">Face Changer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-img">
+                <img src="{{imgPath}}" alt="preview-img" class="choose-img">
+
+            </div>
+        </div>
+        <div class="controls">
+            <button class="reset-filter">Reset Filters</button>
+            <div class="row">
+                <form action="/applyFilter" method="POST" enctype="multipart/form-data">
+                <input type="file" id="upload_file" class="file-input" name="upload_file" accept="image/*" enctype="multipart/form-data" hidden required>
+                <button class="save-img">Save Image</button>
+                
+                    <input type="hidden" name="Selected Filter" class="hiddenTxt">
+                    <button type="submit" class="submitbtn">Submit</button></form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/scripts/script.js"></script>
+    
+  </body>
+</html>
